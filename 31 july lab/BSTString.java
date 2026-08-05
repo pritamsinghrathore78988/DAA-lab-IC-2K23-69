@@ -1,0 +1,79 @@
+import java.util.Scanner;
+public class BSTString {
+    public class Node {
+        String data;
+        Node left;
+        Node right;
+
+        Node(String name) {
+            this.data = name;
+        }
+    }
+
+    public Node insert(Node root, String val) {
+        if (root == null) {
+            Node nn = new Node(val);
+            return nn;
+        }
+        char a1=0, b1=0;
+        //first find the length of both strings
+//        int m = val.length(); //length of string which we want to insert
+//        int n = root.data.length();
+        // aab jiski length choti hogi max utne tak comparission krnge
+        int min = Math.min(val.length(),root.data.length());
+//        int i = 0;
+//        char b1 = val.charAt(i);
+//        char a1 = root.data.charAt(i);
+        // i want to execute it only one time
+//        int chk=0;
+//        char a1, b1;
+        for (int i = 0; i < min; i++) {
+            a1 = root.data.charAt(i);
+            b1 = val.charAt(i);
+            if (a1 != b1)
+                break;
+//            if(i==(min-1)){
+//                b1
+//            }
+        }
+
+//        if (a1 > b1)
+//            root.left = insert(root.left, val);
+//        else
+//            root.right = insert(root.right, val);
+
+//        while(i>= ){
+//            if (a1 > b1)
+//                root.left = insert(root.left, val);
+//            else root.right = insert(root.right, val);
+//        }
+        if (a1 < b1)
+            root.right = insert(root.right, val);
+        else root.left = insert(root.left, val);
+        return root;
+
+    }
+    public void Inorder(Node root){
+        if(root==null)
+            return;
+        Inorder(root.left);
+        System.out.print(root.data+" < ");
+        Inorder(root.right);
+    }
+        public static void main(String agrs[]){
+            Node root=null;
+            BSTString obj=new BSTString();
+            Scanner sc=new Scanner(System.in);
+            System.out.println("how many names you want to enter");
+            int n=sc.nextInt();
+            sc.nextLine();
+            String[] names=new String[n];
+            System.out.println("Enter names");
+            for(int i=0;i<names.length;i++){
+                names[i]=sc.nextLine();
+               root=obj.insert(root,names[i]);
+            }
+            obj.Inorder(root);
+        }
+
+}
