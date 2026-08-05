@@ -16,37 +16,16 @@ public class BSTString {
             return nn;
         }
         char a1=0, b1=0;
-        //first find the length of both strings
-//        int m = val.length(); //length of string which we want to insert
-//        int n = root.data.length();
-        // aab jiski length choti hogi max utne tak comparission krnge
+        //first find the min length out of two strings
         int min = Math.min(val.length(),root.data.length());
-//        int i = 0;
-//        char b1 = val.charAt(i);
-//        char a1 = root.data.charAt(i);
-        // i want to execute it only one time
-//        int chk=0;
-//        char a1, b1;
         for (int i = 0; i < min; i++) {
-            a1 = root.data.charAt(i);
+            a1 = root.data.charAt(i);  // string of any node in our BST
             b1 = val.charAt(i);
-            if (a1 != b1)
+            if (a1 != b1) // If any character of strings was different, then it will break 
                 break;
-//            if(i==(min-1)){
-//                b1
-//            }
+
         }
 
-//        if (a1 > b1)
-//            root.left = insert(root.left, val);
-//        else
-//            root.right = insert(root.right, val);
-
-//        while(i>= ){
-//            if (a1 > b1)
-//                root.left = insert(root.left, val);
-//            else root.right = insert(root.right, val);
-//        }
         if (a1 < b1)
             root.right = insert(root.right, val);
         else root.left = insert(root.left, val);
