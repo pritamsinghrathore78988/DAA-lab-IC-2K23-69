@@ -15,6 +15,14 @@ public class BSTString {
             Node nn = new Node(val);
             return nn;
         }
+        // we can also use this , if we want to use inbuilt method
+        /* 
+          if (root.data.compareToIgnoreCase(val)<0)
+            root.right = insert(root.right, val);
+        else root.left = insert(root.left, val);
+        return root;
+
+        */
         char a1=0, b1=0;
         //first find the min length out of two strings
         int min = Math.min(val.length(),root.data.length());
