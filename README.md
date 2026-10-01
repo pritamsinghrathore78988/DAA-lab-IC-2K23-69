@@ -1,2 +1,2 @@
-# DAA-lab IC-2k23-69
+# DAA-lab
 
